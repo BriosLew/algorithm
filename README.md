@@ -1,2 +1,0 @@
-# algorithm
-QuickSort,MergeSort,

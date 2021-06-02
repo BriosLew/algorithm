@@ -92,17 +92,13 @@ public class SelfdefSort {
         int[] right = Arrays.copyOfRange(array,mid,array.length);
 
 /*        System.out.println("---------------------------------");
-
         for (int i : left) {
             System.out.println(i);
         }
-
         System.out.println("---------"+(++count)+"-----------");
-
         for (int i : right) {
             System.out.println(i);
         }
-
         System.out.println("---------------------------------");*/
 
         return merge(mergeSort(left),mergeSort(right));

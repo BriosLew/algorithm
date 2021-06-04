@@ -1,9 +1,9 @@
 import org.jetbrains.annotations.Contract;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.*;
 
 public class demo01 {
     public static void main(String[] args) {
@@ -40,10 +40,10 @@ public class demo01 {
             String password = scanner.next();
             RespBean result = login(username, password);
             if (result.getCode() == 200) {
-                System.out.println("登录成功！");
+                System.out.println(result.getMessage());
                 break;
             } else {
-                System.out.println("登录失败！请重新输入");
+                System.out.println(result.getMessage());
             }
         }*/
 
@@ -64,16 +64,48 @@ public class demo01 {
             System.out.println(i);
         }*/
 
-        Object[] objects = dislodgeRepeat(array);
+/*        Object[] objects = dislodgeRepeat(array);
         for (Object object : objects) {
             System.out.println(object);
         }
         System.out.println("-----------------------");
         for (Object o : dislodgeRepeat(strs)) {
             System.out.println(o);
+        }*/
+        Scanner scanner=new Scanner(System.in);
+        while (true) {
+            battle(scanner);
+            System.out.println("是否继续？0继续，否则退出");
+            int flag = scanner.nextInt();
+            if(flag != 0)
+                break;
         }
     }
 
+    private static void battle(Scanner scanner) {
+        boolean flag =false;
+        while(!flag){
+            System.out.println("请输入你的数字（1~3）：");
+            int num = scanner.nextInt();
+            switch (num) {
+                case 1:
+                    System.out.println("你出的是石头");
+                    flag=true;
+                    break;
+                case 2:
+                    System.out.println("你出的是剪刀");
+                    flag=true;
+                    break;
+                case 3:
+                    System.out.println("你出的是布");
+                    flag=true;
+                    break;
+                default:
+                    System.out.println("请输入1~3之间的整数");
+
+            }
+        }
+    }
     @Contract(pure = true)
     private static Boolean getZ(int num) {
         for (int i = 2; i <= num / 2; i++) {
@@ -112,9 +144,9 @@ public class demo01 {
     private static RespBean login(String username, String password) {
         RespBean respBean = new RespBean();
         if (!LOGIN_USERNAME.equals(username) || !LOGIN_PASSWORD.equals(password)) {
-            return respBean.error(500, "用户名或密码错误");
+            return respBean.error(500, "用户名或密码错误!");
         } else {
-            return respBean.success(200, "登录成功");
+            return respBean.success(200, "登录成功!");
         }
     }
 

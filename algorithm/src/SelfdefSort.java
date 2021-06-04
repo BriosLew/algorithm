@@ -1,6 +1,7 @@
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class SelfdefSort {
     @Test
@@ -34,6 +35,7 @@ public class SelfdefSort {
         array[i] = array[j];
         array[j] = temp;
     }
+
 
     /**
      * 快速排序
